@@ -1,0 +1,12 @@
+# do UART_Receiver.do 
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Block1
+# 
+# Top level modules:
+# 	Block1
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module Block1_vlg_sample_tst
+# -- Compiling module Block1_vlg_check_tst
+# ** Error: UART_Receiver.vt(62): near ",": syntax error, unexpected ','
+# ** Error: c:/altera/13.0/modelsim_ase/win32aloem/vlog failed.
+# Executing ONERROR command at macro ./UART_Receiver.do line 4

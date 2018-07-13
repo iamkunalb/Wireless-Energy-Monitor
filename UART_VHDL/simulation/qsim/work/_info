@@ -1,0 +1,45 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\UART_VHDL\simulation\qsim
+vBlock1
+Z1 I=nk7CgX]=]S;b1KQC1IZ11
+Z2 VzmHe1fHT==GkgOA>8Z4Wg3
+Z3 dD:\UART_VHDL\simulation\qsim
+Z4 w1502408512
+Z5 8UART_Receiver.vo
+Z6 FUART_Receiver.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 o-work work -O0
+Z9 n@block1
+!i10b 1
+Z10 !s100 nFF[aG?QO0hkd?]W`G]e_1
+!s85 0
+Z11 !s108 1502408515.699000
+Z12 !s107 UART_Receiver.vo|
+Z13 !s90 -work|work|UART_Receiver.vo|
+!s101 -O0
+vBlock1_vlg_sample_tst
+!i10b 1
+!s100 jF6Aem>^_OiagMOMVIOo>2
+IjEeHYZ3NL]8Z=hbTNO1R[2
+V1Y_]h_a<z4R2Ug>?ER:Sh1
+R3
+w1502408511
+8UART_Receiver.vt
+FUART_Receiver.vt
+L0 29
+R7
+r1
+!s85 0
+31
+!s108 1502408516.104000
+!s107 UART_Receiver.vt|
+!s90 -work|work|UART_Receiver.vt|
+!s101 -O0
+R8
+n@block1_vlg_sample_tst

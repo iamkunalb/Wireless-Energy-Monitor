@@ -1,0 +1,11 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity ShiftReg is
+	port (	n_count: in std_logic;
+				n_data: out std_logic 	
+			);
+end entity ShiftReg;
+
+architecture shiftreg_behaviour of ShiftReg is

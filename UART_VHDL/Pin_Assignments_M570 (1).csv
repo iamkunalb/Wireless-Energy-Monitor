@@ -1,0 +1,46 @@
+# Copyright (C) 1991-2011 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+# Quartus II 64-Bit Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Full Version
+# File: D:/Lab/EE209/2017/DecoderM570V1/DecoderM570V1.csv
+# Generated on: Fri Aug 11 13:51:43 2017
+
+# Note: The column header names should not be changed if you wish to import this .csv file into the Quartus II software.
+
+To,Direction,Location,Reserved,I/O Bank,I/O Standard,Current Strength
+clk,Input,PIN_14,,1,,
+clock100M,Input,PIN_62,,2,,
+LED0,Output,PIN_73,,2,,
+LED1,Output,PIN_74,,2,,
+LED2,Output,PIN_75,,2,,
+LED3,Output,PIN_76,,2,,
+led_dp,Output,PIN_54,,2,,
+LED_RED,Output,PIN_27,,1,,
+ledsegment[6],Output,PIN_52,,2,,
+ledsegment[5],Output,PIN_50,,1,,
+ledsegment[4],Output,PIN_48,,1,,
+ledsegment[3],Output,PIN_44,,1,,
+ledsegment[2],Output,PIN_42,,1,,
+ledsegment[1],Output,PIN_36,,1,,
+ledsegment[0],Output,PIN_34,,1,,
+ledsel[3],Output,PIN_68,,2,,
+ledsel[2],Output,PIN_66,,2,,
+ledsel[1],Output,PIN_58,,2,,
+ledsel[0],Output,PIN_56,,2,,
+PB0,Input,PIN_78,,2,,
+PB1,Input,PIN_77,,2,,
+rx,Input,PIN_100,,2,,
+rx_RS232,Input,PIN_17,,1,,
+tx,Output,PIN_2,,1,,
+tx_RS232,Output,PIN_16,,1,,

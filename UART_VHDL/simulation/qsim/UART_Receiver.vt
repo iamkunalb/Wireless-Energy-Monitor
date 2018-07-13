@@ -1,0 +1,429 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "09/17/2017 18:14:34"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    Block1
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module Block1_vlg_sample_tst(
+	clk,
+	PB0,
+	rx,
+	sampler_tx
+);
+input  clk;
+input  PB0;
+input  rx;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(clk or PB0 or rx)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module Block1_vlg_check_tst (
+	LED0,
+	ledsegment,
+	ledsel,
+	sampler_rx
+);
+input  LED0;
+input [6:0] ledsegment;
+input [3:0] ledsel;
+input sampler_rx;
+
+reg  LED0_expected;
+reg [6:0] ledsegment_expected;
+reg [3:0] ledsel_expected;
+
+reg  LED0_prev;
+reg [6:0] ledsegment_prev;
+reg [3:0] ledsel_prev;
+
+reg [6:0] ledsegment_expected_prev;
+reg [3:0] ledsel_expected_prev;
+
+reg [6:0] last_ledsegment_exp;
+reg [3:0] last_ledsel_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:3] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 3'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	LED0_prev = LED0;
+	ledsegment_prev = ledsegment;
+	ledsel_prev = ledsel;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	ledsegment_expected_prev = ledsegment_expected;
+	ledsel_expected_prev = ledsel_expected;
+end
+
+
+// expected ledsegment[ 6 ]
+initial
+begin
+	ledsegment_expected[6] = 1'bX;
+	ledsegment_expected[6] = #999000 1'b0;
+end 
+// expected ledsegment[ 5 ]
+initial
+begin
+	ledsegment_expected[5] = 1'bX;
+	ledsegment_expected[5] = #999000 1'b0;
+end 
+// expected ledsegment[ 4 ]
+initial
+begin
+	ledsegment_expected[4] = 1'bX;
+	ledsegment_expected[4] = #999000 1'b0;
+end 
+// expected ledsegment[ 3 ]
+initial
+begin
+	ledsegment_expected[3] = 1'bX;
+	ledsegment_expected[3] = #999000 1'b0;
+end 
+// expected ledsegment[ 2 ]
+initial
+begin
+	ledsegment_expected[2] = 1'bX;
+	ledsegment_expected[2] = #999000 1'b0;
+end 
+// expected ledsegment[ 1 ]
+initial
+begin
+	ledsegment_expected[1] = 1'bX;
+	ledsegment_expected[1] = #999000 1'b0;
+end 
+// expected ledsegment[ 0 ]
+initial
+begin
+	ledsegment_expected[0] = 1'bX;
+	ledsegment_expected[0] = #999000 1'b0;
+end 
+// expected ledsel[ 3 ]
+initial
+begin
+	ledsel_expected[3] = 1'bX;
+	ledsel_expected[3] = #999000 1'b0;
+end 
+// expected ledsel[ 2 ]
+initial
+begin
+	ledsel_expected[2] = 1'bX;
+	ledsel_expected[2] = #999000 1'b0;
+end 
+// expected ledsel[ 1 ]
+initial
+begin
+	ledsel_expected[1] = 1'bX;
+	ledsel_expected[1] = #999000 1'b0;
+end 
+// expected ledsel[ 0 ]
+initial
+begin
+	ledsel_expected[0] = 1'bX;
+	ledsel_expected[0] = #999000 1'b0;
+end 
+// generate trigger
+always @(LED0_expected or LED0 or ledsegment_expected or ledsegment or ledsel_expected or ledsel)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected LED0 = %b | expected ledsegment = %b | expected ledsel = %b | ",LED0_expected_prev,ledsegment_expected_prev,ledsel_expected_prev);
+	$display("| real LED0 = %b | real ledsegment = %b | real ledsel = %b | ",LED0_prev,ledsegment_prev,ledsel_prev);
+`endif
+	if (
+		( ledsegment_expected_prev[0] !== 1'bx ) && ( ledsegment_prev[0] !== ledsegment_expected_prev[0] )
+		&& ((ledsegment_expected_prev[0] !== last_ledsegment_exp[0]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ledsegment[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ledsegment_expected_prev);
+		$display ("     Real value = %b", ledsegment_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_ledsegment_exp[0] = ledsegment_expected_prev[0];
+	end
+	if (
+		( ledsegment_expected_prev[1] !== 1'bx ) && ( ledsegment_prev[1] !== ledsegment_expected_prev[1] )
+		&& ((ledsegment_expected_prev[1] !== last_ledsegment_exp[1]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ledsegment[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ledsegment_expected_prev);
+		$display ("     Real value = %b", ledsegment_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_ledsegment_exp[1] = ledsegment_expected_prev[1];
+	end
+	if (
+		( ledsegment_expected_prev[2] !== 1'bx ) && ( ledsegment_prev[2] !== ledsegment_expected_prev[2] )
+		&& ((ledsegment_expected_prev[2] !== last_ledsegment_exp[2]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ledsegment[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ledsegment_expected_prev);
+		$display ("     Real value = %b", ledsegment_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_ledsegment_exp[2] = ledsegment_expected_prev[2];
+	end
+	if (
+		( ledsegment_expected_prev[3] !== 1'bx ) && ( ledsegment_prev[3] !== ledsegment_expected_prev[3] )
+		&& ((ledsegment_expected_prev[3] !== last_ledsegment_exp[3]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ledsegment[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ledsegment_expected_prev);
+		$display ("     Real value = %b", ledsegment_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_ledsegment_exp[3] = ledsegment_expected_prev[3];
+	end
+	if (
+		( ledsegment_expected_prev[4] !== 1'bx ) && ( ledsegment_prev[4] !== ledsegment_expected_prev[4] )
+		&& ((ledsegment_expected_prev[4] !== last_ledsegment_exp[4]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ledsegment[4] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ledsegment_expected_prev);
+		$display ("     Real value = %b", ledsegment_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_ledsegment_exp[4] = ledsegment_expected_prev[4];
+	end
+	if (
+		( ledsegment_expected_prev[5] !== 1'bx ) && ( ledsegment_prev[5] !== ledsegment_expected_prev[5] )
+		&& ((ledsegment_expected_prev[5] !== last_ledsegment_exp[5]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ledsegment[5] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ledsegment_expected_prev);
+		$display ("     Real value = %b", ledsegment_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_ledsegment_exp[5] = ledsegment_expected_prev[5];
+	end
+	if (
+		( ledsegment_expected_prev[6] !== 1'bx ) && ( ledsegment_prev[6] !== ledsegment_expected_prev[6] )
+		&& ((ledsegment_expected_prev[6] !== last_ledsegment_exp[6]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ledsegment[6] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ledsegment_expected_prev);
+		$display ("     Real value = %b", ledsegment_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_ledsegment_exp[6] = ledsegment_expected_prev[6];
+	end
+	if (
+		( ledsel_expected_prev[0] !== 1'bx ) && ( ledsel_prev[0] !== ledsel_expected_prev[0] )
+		&& ((ledsel_expected_prev[0] !== last_ledsel_exp[0]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ledsel[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ledsel_expected_prev);
+		$display ("     Real value = %b", ledsel_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_ledsel_exp[0] = ledsel_expected_prev[0];
+	end
+	if (
+		( ledsel_expected_prev[1] !== 1'bx ) && ( ledsel_prev[1] !== ledsel_expected_prev[1] )
+		&& ((ledsel_expected_prev[1] !== last_ledsel_exp[1]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ledsel[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ledsel_expected_prev);
+		$display ("     Real value = %b", ledsel_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_ledsel_exp[1] = ledsel_expected_prev[1];
+	end
+	if (
+		( ledsel_expected_prev[2] !== 1'bx ) && ( ledsel_prev[2] !== ledsel_expected_prev[2] )
+		&& ((ledsel_expected_prev[2] !== last_ledsel_exp[2]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ledsel[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ledsel_expected_prev);
+		$display ("     Real value = %b", ledsel_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_ledsel_exp[2] = ledsel_expected_prev[2];
+	end
+	if (
+		( ledsel_expected_prev[3] !== 1'bx ) && ( ledsel_prev[3] !== ledsel_expected_prev[3] )
+		&& ((ledsel_expected_prev[3] !== last_ledsel_exp[3]) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ledsel[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ledsel_expected_prev);
+		$display ("     Real value = %b", ledsel_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_ledsel_exp[3] = ledsel_expected_prev[3];
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#10000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module Block1_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg clk;
+reg PB0;
+reg rx;
+// wires                                               
+wire LED0;
+wire [6:0] ledsegment;
+wire [3:0] ledsel;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+Block1 i1 (
+// port map - connection between master ports and signals/registers   
+	.clk(clk),
+	.LED0(LED0),
+	.ledsegment(ledsegment),
+	.ledsel(ledsel),
+	.PB0(PB0),
+	.rx(rx)
+);
+
+// clk
+always
+begin
+	clk = 1'b0;
+	clk = #5000 1'b1;
+	#5000;
+end 
+
+// rx
+initial
+begin
+	rx = 1'b0;
+	rx = #160000 1'b1;
+	rx = #160000 1'b0;
+	rx = #1120000 1'b1;
+	rx = #480000 1'b0;
+	rx = #160000 1'b1;
+	rx = #160000 1'b0;
+	rx = #480000 1'b1;
+	rx = #160000 1'b0;
+	rx = #160000 1'b1;
+	rx = #160000 1'b0;
+	rx = #160000 1'b1;
+	rx = #3040000 1'b0;
+end 
+
+// PB0
+initial
+begin
+	PB0 = 1'b0;
+end 
+
+Block1_vlg_sample_tst tb_sample (
+	.clk(clk),
+	.PB0(PB0),
+	.rx(rx),
+	.sampler_tx(sampler)
+);
+
+Block1_vlg_check_tst tb_out(
+	.LED0(LED0),
+	.ledsegment(ledsegment),
+	.ledsel(ledsel),
+	.sampler_rx(sampler)
+);
+endmodule
+
